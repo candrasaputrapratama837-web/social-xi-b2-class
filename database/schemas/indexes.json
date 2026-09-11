@@ -1,0 +1,28 @@
+{
+  "description": "MongoDB compound and performance index specifications for Social XI-B2",
+  "indexes": {
+    "branches": [
+      { "fields": { "branchId": 1 }, "options": { "unique": true } }
+    ],
+    "users": [
+      { "fields": { "email": 1, "branchId": 1 }, "options": { "unique": true } },
+      { "fields": { "branchId": 1, "role": 1 } }
+    ],
+    "students": [
+      { "fields": { "nisn": 1, "branchId": 1 }, "options": { "unique": true } },
+      { "fields": { "branchId": 1, "status": 1, "xp": -1 } }
+    ],
+    "attendances": [
+      { "fields": { "studentId": 1, "date": 1, "branchId": 1 }, "options": { "unique": true } },
+      { "fields": { "branchId": 1, "date": 1 } }
+    ],
+    "cash_records": [
+      { "fields": { "studentId": 1, "month": 1, "branchId": 1 }, "options": { "unique": true } },
+      { "fields": { "branchId": 1, "month": 1 } }
+    ],
+    "audit_logs": [
+      { "fields": { "branchId": 1, "createdAt": -1 } },
+      { "fields": { "action": 1, "branchId": 1 } }
+    ]
+  }
+}

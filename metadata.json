@@ -1,0 +1,6 @@
+{
+  "name": "Social-XI-B2",
+  "description": "Website Resmi Kelas XI-B2 SMAN 1 Sandai - Social Interaction Platform, Academy System, Agora Room, Bazaar & Centralized Admin Control",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

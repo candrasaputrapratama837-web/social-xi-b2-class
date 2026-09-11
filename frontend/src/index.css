@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .font-display {
+    font-family: 'Montserrat', sans-serif;
+  }
+  .font-body {
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+/* Custom Vintage Agency Dark Aesthetic Elements */
+.bg-agency-pattern {
+  background-color: #020617;
+  background-image: radial-gradient(rgba(34, 197, 94, 0.08) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+.border-dashed-subtle {
+  border-style: dashed;
+  border-color: rgba(51, 65, 85, 0.6);
+}
+
+.hover-glow-green:hover {
+  box-shadow: 0 0 25px -5px rgba(34, 197, 94, 0.25);
+  border-color: rgba(34, 197, 94, 0.5);
+}
+
+.hover-glow-orange:hover {
+  box-shadow: 0 0 25px -5px rgba(249, 115, 22, 0.25);
+  border-color: rgba(249, 115, 22, 0.5);
+}
+

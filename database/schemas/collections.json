@@ -1,0 +1,60 @@
+{
+  "description": "MongoDB collection definitions and validation schemas for Social XI-B2 MERN architecture",
+  "collections": [
+    {
+      "name": "branches",
+      "description": "Branch and tenant metadata for multi-tenant isolation",
+      "requiredFields": ["branchId", "className", "schoolName"],
+      "uniqueConstraint": ["branchId"]
+    },
+    {
+      "name": "users",
+      "description": "System accounts including capped administrators",
+      "requiredFields": ["email", "name", "role", "branchId"],
+      "uniqueConstraint": ["email", "branchId"]
+    },
+    {
+      "name": "students",
+      "description": "Active and inactive students in XI-B2 class roster",
+      "requiredFields": ["nisn", "name", "branchId", "status"],
+      "uniqueConstraint": ["nisn", "branchId"]
+    },
+    {
+      "name": "attendances",
+      "description": "Student daily attendance with anti-spoofing and verification",
+      "requiredFields": ["studentId", "date", "status", "branchId"],
+      "uniqueConstraint": ["studentId", "date", "branchId"]
+    },
+    {
+      "name": "cash_records",
+      "description": "Class treasury records with admin-only detailed access",
+      "requiredFields": ["branchId", "month", "studentId", "amountPaid"],
+      "uniqueConstraint": ["studentId", "month", "branchId"]
+    },
+    {
+      "name": "tasks",
+      "description": "Student assignment submissions and XP rewards",
+      "requiredFields": ["studentId", "title", "subject", "branchId", "status"]
+    },
+    {
+      "name": "forum_posts",
+      "description": "Agora room discussion posts",
+      "requiredFields": ["branchId", "author", "content"]
+    },
+    {
+      "name": "gallery",
+      "description": "Class documentation photos",
+      "requiredFields": ["branchId", "url", "category"]
+    },
+    {
+      "name": "audit_logs",
+      "description": "Immutable security and audit trail",
+      "requiredFields": ["branchId", "action", "user", "role", "status", "createdAt"]
+    },
+    {
+      "name": "settings",
+      "description": "Class and system configuration parameters",
+      "requiredFields": ["branchId"]
+    }
+  ]
+}
