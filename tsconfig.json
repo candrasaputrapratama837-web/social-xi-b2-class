@@ -22,5 +22,5 @@
     "esModuleInterop": true,
     "resolveJsonModule": true
   },
-  "include": ["frontend/src", "backend/src"]
+  "include": ["frontend/src", "backend/src", "api"]
 }
