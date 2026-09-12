@@ -75,7 +75,7 @@ export async function seedDatabase() {
   console.log('🎉 MongoDB Atlas database seeding completed successfully!');
 }
 
-if (import.meta.url.endsWith(process.argv[1]) || process.argv[1]?.includes('seed.ts')) {
+if (process.argv[1]?.includes('seed.ts')) {
   seedDatabase()
     .then(() => process.exit(0))
     .catch((err) => {

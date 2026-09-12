@@ -1,11 +1,9 @@
 import app from '../backend/src/app';
 import { connectDatabase } from '../backend/src/config/database';
 
-// Initialize DB connection in the serverless environment wrapper
 let isDbConnected = false;
 
-// Apply a middleware to ensure the database is connected before handling requests
-app.use(async (req, res, next) => {
+export default async function handler(req: any, res: any) {
   if (!isDbConnected) {
     try {
       await connectDatabase();
@@ -14,7 +12,5 @@ app.use(async (req, res, next) => {
       console.error('[Vercel] DB Connection error:', err);
     }
   }
-  next();
-});
-
-export default app;
+  return app(req, res);
+}

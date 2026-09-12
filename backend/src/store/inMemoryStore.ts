@@ -1,6 +1,5 @@
 import fs from 'fs';
 import path from 'path';
-import { fileURLToPath } from 'url';
 import { ACTIVE_BRANCH_ID, StudentStatus, MAX_ADMIN_ACCOUNTS } from '../config/constants';
 
 export interface InMemoryStoreData {
@@ -91,9 +90,9 @@ class InMemoryStore {
 
     try {
       let currentDir = '';
-      try {
-        currentDir = path.dirname(fileURLToPath(import.meta.url));
-      } catch {
+      if (typeof __dirname !== 'undefined') {
+        currentDir = __dirname;
+      } else {
         currentDir = process.cwd();
       }
 
